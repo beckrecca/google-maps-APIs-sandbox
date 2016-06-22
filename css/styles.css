@@ -1,0 +1,15 @@
+html, body {
+	height: 100%;
+    margin: 0 2em;
+    padding: 0;
+}
+#map {
+	height: 100%;
+	float: left;
+	width: 70%;
+}
+#directionsPanel {
+	height: 100%;
+	width: 30%;
+	float: right;
+}
