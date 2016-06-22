@@ -1,0 +1,26 @@
+markers = [
+	{
+		"id": "1",
+		"title": "Harvard Extension School",
+		"lat": "42.3745154",
+		"lng": "-71.12147779999998",
+		"address": "51 Brattle Street, Cambridge MA 02138",
+		"web": "http://www.extension.harvard.edu"
+	},
+	{
+		"id": "2",
+		"title": "Boston University College of Arts and Sciences",
+		"lat": "42.3499332",
+		"lng": "-71.09856059999998",
+		"address": "116 Bay State Rd, Boston, MA 02215, USA",
+		"web": "http://www.bu.edu/cas"
+	},
+	{
+		"id": "3",
+		"title": "Massachusetts General Hospital",
+		"lat": "42.3629523",
+		"lng": "-71.06869749999998",
+		"address": "55 Fruit St, Boston, MA 02114",
+		"web": "http://www.massgeneral.org"
+	}
+]
