@@ -11,8 +11,13 @@
 <body>
     <header><h1>Directions Display Sandbox</h1></header>
     <p><a href="markers.html">Multiple markers and nearest location</a><p>
+    <p>This lil app will find you MBTA directions to Coolidge Corner Theater.</p>
     <form>
         <input type="text" id="start" name="start" />
+        <input type="hidden" id="lat" name="lat" value="42.3425882">
+        <input type="hidden" id="lng" name="lng" value="-71.12246290000002">
+        <input type="hidden" id="title" name="title" value="Coolidge Corner Theater">
+        <input type="hidden" id="address" name="address" value="290 Harvard St, Brookline, MA 02446">
         <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </form>
 
@@ -20,47 +25,7 @@
     <div id="directionsPanel"></div>
 
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
-    <script>
-     var directionsDisplay;
-     var directionsService;
-     var map;
-
-     function initMap() {
-        directionsDisplay = new google.maps.DirectionsRenderer();
-        directionsService = new google.maps.DirectionsService();
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 42.3600825, lng: -71.05888010000001},
-          zoom: 11
-        });
-        directionsDisplay.setMap(map);
-        directionsDisplay.setPanel(document.getElementById("directionsPanel"));
-
-        $('form').submit(function(e) {
-          e.preventDefault();
-          consoleTest();
-          calcRoute();
-        });
-     }
-     function consoleTest() {
-      console.log($('#start').val());
-     }
-    function calcRoute() {
-      console.log("running calcRoute!");
-      var start = $('#start').val();
-      console.log("start.val is " + start);
-      var end = '290 Harvard St, Brookline, MA 02446';
-      var request = {
-        origin:start,
-        destination:end,
-        travelMode: google.maps.TravelMode.TRANSIT
-      };
-      directionsService.route(request, function(response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-          directionsDisplay.setDirections(response);
-        }
-      }); 
-    } 
-    </script>
+    <script src="js/directions.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfIWxFiTBaolXUvFobvatofTwGKuEYaKA&callback=initMap" 
     async defer></script>
 </body>
