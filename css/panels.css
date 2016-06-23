@@ -3,6 +3,9 @@ html, body {
     margin: 0 2em;
     padding: 0;
 }
+select {
+	font-size: 1.2em;
+}
 #map {
 	height: 100%;
 	float: left;

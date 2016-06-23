@@ -30,6 +30,7 @@ function initMap() {
   });
 }
 function calcRoute() {
+  console.log($('#transitOptions').val());
   var start = $('#start').val();
   var end = $('#address').val();
   var request = {

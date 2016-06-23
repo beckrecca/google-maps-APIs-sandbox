@@ -13,11 +13,15 @@
     <p><a href="markers.html">Multiple markers and nearest location</a><p>
     <p>This lil app will find you MBTA directions to Coolidge Corner Theater.</p>
     <form>
-        <input type="text" id="start" name="start" />
+        <input type="text" id="start" name="start" placeholder="Enter your address" />
         <input type="hidden" id="lat" name="lat" value="42.3425882">
         <input type="hidden" id="lng" name="lng" value="-71.12246290000002">
         <input type="hidden" id="title" name="title" value="Coolidge Corner Theater">
         <input type="hidden" id="address" name="address" value="290 Harvard St, Brookline, MA 02446">
+        <select name="transitOptions" id="transitOptions">
+            <option value="departureTime">Leaving at</option>
+            <option value="arrivalTime">Arriving at</option>
+        </select>
         <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </form>
 
