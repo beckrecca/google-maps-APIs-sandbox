@@ -22,5 +22,45 @@ markers = [
 		"lng": "-71.06869749999998",
 		"address": "55 Fruit St, Boston, MA 02114",
 		"web": "http://www.massgeneral.org"
+	},
+	{
+		"id": "4",
+		"title": "Wild Willy's Burgers",
+		"lat": "42.247039",
+		"lng": "-70.9772802",
+		"address": "588 Washington St, Quincy, MA 02169",
+		"web": "http://www.wildwillysburgers.com/"
+	},
+	{
+		"id": "4",
+		"title": "Pope John Paul II Park",
+		"lat": "42.2804526",
+		"lng": "-71.0445767",
+		"address": "Pope John Paul II Park, Boston, MA 02124",
+		"web": "http://www.mass.gov/eea/agencies/dcr/massparks/region-boston/pope-john-paul-ii-park-reservation.html"
+	},
+	{
+		"id": "5",
+		"title": "XV Beacon Hotel",
+		"lat": "42.3584016",
+		"lng": "-71.06196649999998",
+		"address": "15 Beacon St, Boston, MA 02108",
+		"web": "http://xvbeacon.com/"
+	},
+	{
+		"id": "6",
+		"title": "Nut Island",
+		"lat": "42.27926600000001",
+		"lng": "-70.95393619999999",
+		"address": "Nut Island, Quincy, MA 02169",
+		"web": "http://www.bostonharborislands.org/#!nut-island/c12bq"
+	},
+	{
+		"id": "7",
+		"title": "Corcoran Playground",
+		"lat": "42.3866275",
+		"lng": "-71.12795519999997",
+		"address": "Corcoran Playground, Cambridge, MA, United States",
+		"web": "http://www.recreationparks.net/MA/middlesex/corcoran-playground-cambridge"
 	}
 ]
