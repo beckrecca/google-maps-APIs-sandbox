@@ -1,5 +1,6 @@
 var map;
 var geocoder;
+var previousMarker;
 function initMap() {
   	map = new google.maps.Map(document.getElementById('map'), {
     	center: {lat: 42.3600825, lng: -71.05888010000001},
@@ -20,23 +21,36 @@ function initMap() {
 	}
 	$('form').submit(function(e) {
 	    e.preventDefault();
+	    $('#results').html(" ");
+	    if (previousMarker != null) {
+	    	previousMarker.setMap(null);
+	    }
 	    createMarker();
 	});
 }
 function createMarker() {
-	console.log($('#user').val());
 	geocoder = new google.maps.Geocoder();
 	var userAddress = $('#user').val();
 	geocoder.geocode( { 'address': userAddress}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
-        map.setZoom(12);
+        map.setZoom(13);
         var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location,
             icon: 'img/green-dot.png',
             title: 'User'
         });
+        previousMarker = marker;
+        var userLat = parseFloat(results[0].geometry.location.lat());
+      	var userLng = parseFloat(results[0].geometry.location.lng());
+      	var userPoint = {
+        	lat: userLat,
+        	lng: userLng
+      	}
+      	var radius = parseFloat($('#radius').val());
+      	// find the closest markers
+      	findClosest(userPoint, radius);
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }

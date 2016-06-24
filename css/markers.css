@@ -8,4 +8,10 @@ h1 {
 }
 #map {
 	height: 100%;
+	width: 80%;
+	float: right;
+}
+#results {
+	width: 20%;
+	float: left;
 }
