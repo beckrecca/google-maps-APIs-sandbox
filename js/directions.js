@@ -30,13 +30,28 @@ function initMap() {
   });
 }
 function calcRoute() {
-  console.log($('#transitOptions').val());
   var start = $('#start').val();
   var end = $('#address').val();
+  var dateTime;
+  var timeOptions = {};
+  if ($("#datetimepicker").val() != null) {
+    dateTime = new Date($("#datetimepicker").val());
+    if ($('#transitOptions').val() == "arrivalTime") {
+      timeOptions = {
+        arrivalTime: dateTime
+      }
+    }
+    else {
+      timeOptions = {
+        departureTime: dateTime
+      }
+    }
+  }
   var request = {
     origin:start,
     destination:end,
-    travelMode: google.maps.TravelMode.TRANSIT
+    travelMode: google.maps.TravelMode.TRANSIT,
+    transitOptions: timeOptions
   };
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
