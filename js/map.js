@@ -1,6 +1,7 @@
 var map;
 var geocoder;
 var previousMarker;
+var oldMarkers = [];
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'));
   var bounds =  new google.maps.LatLngBounds();
@@ -10,6 +11,7 @@ function initMap() {
 			map: map,
 			title: markers[i].title
 		});
+    oldMarkers[i] = newMarker;
 		newMarker.content = "<p><a href='" + markers[i].web + "' target='_blank'>" + markers[i].title + "</a> <br/> " + markers[i].address + "</p>";
 		var infoWindow = new google.maps.InfoWindow();
 		google.maps.event.addListener(newMarker, 'click', function () {
@@ -49,9 +51,12 @@ function createMarker() {
         	lng: userLng
       	}
       	var radius = parseFloat($('#radius').val());
-      	// find the closest markers
-      	findClosest(userPoint, radius);
-        // delete all markers that are not within range
+      	// list the closest markers and find all not within radius
+      	var deletes = findClosest(userPoint, radius);
+        // delete those not within the radius
+        for (var i = 0; i < deletes.length; i++) {
+          oldMarkers[deletes[i]].setMap(null);
+        }
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
