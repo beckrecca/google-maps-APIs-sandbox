@@ -2,10 +2,8 @@ var map;
 var geocoder;
 var previousMarker;
 function initMap() {
-  	map = new google.maps.Map(document.getElementById('map'), {
-    	center: {lat: 42.3600825, lng: -71.05888010000001},
-    zoom: 11
-  	});
+	map = new google.maps.Map(document.getElementById('map'));
+  var bounds =  new google.maps.LatLngBounds();
 	for (var i = 0; i < markers.length; i++) {
 		var newMarker = new google.maps.Marker({
 			position: {lat: parseFloat(markers[i].lat), lng: parseFloat(markers[i].lng)},
@@ -18,7 +16,10 @@ function initMap() {
 			infoWindow.setContent(this.content);
 			infoWindow.open(this.getMap(), this);
 		});
+    bounds.extend(new google.maps.LatLng(parseFloat(markers[i].lat), parseFloat(markers[i].lng)));
 	}
+  map.fitBounds(bounds);
+  map.panToBounds(bounds);
 	$('form').submit(function(e) {
 	    e.preventDefault();
 	    $('#results').html(" ");
@@ -34,7 +35,6 @@ function createMarker() {
 	geocoder.geocode( { 'address': userAddress}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
-        map.setZoom(13);
         var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location,
@@ -51,6 +51,7 @@ function createMarker() {
       	var radius = parseFloat($('#radius').val());
       	// find the closest markers
       	findClosest(userPoint, radius);
+        // delete all markers that are not within range
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
