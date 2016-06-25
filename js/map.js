@@ -14,7 +14,7 @@ function initMap() {
 	    createUserMarker();
 	});
 }
-function createMultipleMarkers(markers) {
+function createMultipleMarkers(markers, userPosition) {
   var bounds =  new google.maps.LatLngBounds();
   for (var i = 0; i < markers.length; i++) {
     var newMarker = new google.maps.Marker({
@@ -30,6 +30,9 @@ function createMultipleMarkers(markers) {
       infoWindow.open(this.getMap(), this);
     });
     bounds.extend(new google.maps.LatLng(parseFloat(markers[i].lat), parseFloat(markers[i].lng)));
+  }
+  if (userPosition!= null) {
+    bounds.extend(new google.maps.LatLng(userPosition));
   }
   map.fitBounds(bounds);
   map.panToBounds(bounds);
@@ -60,7 +63,7 @@ function createUserMarker() {
           oldMarkers[i].setMap(null);
         }
         // repopulate map with results
-        createMultipleMarkers(closest);
+        createMultipleMarkers(closest, userPoint);
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
