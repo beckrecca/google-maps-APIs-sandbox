@@ -62,5 +62,45 @@ markers = [
 		"lng": "-71.12795519999997",
 		"address": "Corcoran Playground, Cambridge, MA, United States",
 		"web": "http://www.recreationparks.net/MA/middlesex/corcoran-playground-cambridge"
+	},
+	{
+		"id": "8",
+		"title": "AMC Regal Fenway",
+		"lat": "42.3445717",
+		"lng": "-71.10167960000001",
+		"address": "201 Brookline Ave, Boston, MA 02215",
+		"web": "http://www.fandango.com/regalfenwaystadium1326rpx_aaovd/theaterpage"
+	},
+	{
+		"id": "9",
+		"title": "Nantasket Beach Resort",
+		"lat": "42.2744585",
+		"lng": "-70.86133999999998",
+		"address": "45 Hull Shore Dr, Hull, MA 02045",
+		"web": "http://www.nantasketbeachresort.com/"
+	},
+	{
+		"id": "10",
+		"title": "Elephant Walk",
+		"lat": "42.3916007",
+		"lng": "-71.12326759999996",
+		"address": "2067 Massachusetts Ave, Cambridge, MA 02140",
+		"web": "http://elephantwalk.com/"
+	},
+	{
+		"id": "11",
+		"title": "Massachusetts College of Art and Design",
+		"lat": "42.3369376",
+		"lng": "-71.09933719999998",
+		"address": "621 Huntington Ave, Boston, MA 02115",
+		"web": "http://www.massart.edu"
+	},
+	{
+		"id": "12",
+		"title": "Museum of Fine Arts, Boston",
+		"lat": "42.339381",
+		"lng": "-71.09404799999999",
+		"address": "465 Huntington Ave, Boston, MA 02115",
+		"web": "http://www.massart.edu"
 	}
 ]

@@ -39,19 +39,17 @@ function findDistances(userPoint) {
 
 function findClosest(userPoint, radius) {
   var distances = findDistances(userPoint);
-  var deletes = [];
+  var closest = [];
   $('#results').append("<ul id='listResults'>");
   // find all places within range
   var j = 0;
   for (i = 0; i < distances.length; i++) {
     if (distances[i] <= radius) {
       $('#results').append("<li>" + markers[i].title + "</li>");
-    }
-    else {
-      deletes[j] = i;
+      closest[j] = markers[i];
       j++;
     }
   }
   $('#results').append("</ul>");
-  return deletes;
+  return closest;
 }
